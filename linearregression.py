@@ -1,3 +1,7 @@
+# Khoi Ma
+# nm3278
+# CS383
+# Lab 3
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
@@ -59,9 +63,10 @@ y_val = y_val * y_std + y_mean  # Reverse actual y_val
 rmse_train = np.sqrt(np.mean((y_train - y_train_pred) ** 2))
 rmse_val = np.sqrt(np.mean((y_val - y_val_pred) ** 2))
 
-# Corrected SMAPE function (ensures denominator is |Y| + |Yhat|)
+# Compute SMAPE
 def smape(y_true, y_pred):
-    return np.mean(2 * np.abs(y_true - y_pred) / (np.abs(y_true) + np.abs(y_pred) + 1e-10)) * 100  # Fix denominator
+    return np.mean(np.abs(y_true - y_pred) / (np.abs(y_true) + np.abs(y_pred) + 1e-10)) * 100
+
 
 smape_train = smape(y_train, y_train_pred)
 smape_val = smape(y_val, y_val_pred)
