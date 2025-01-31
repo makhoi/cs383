@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-# Load dataset
 df = pd.read_csv('insurance.csv')
 
 # Convert categorical variables to numeric
